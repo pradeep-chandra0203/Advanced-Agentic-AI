@@ -1,0 +1,22 @@
+from langchain_core.prompts import ChatPromptTemplate
+
+template = ChatPromptTemplate.from_messages(
+    [
+        ("system", "You are a helpful assistant."),
+        ("user", """
+You are a professional travel planner. Based on the user's profile, create a personalized travel itinerary. Include activities, must-see attractions, suggested local food, transportation tips, cultural do's and don't's and a basic packing checklist.
+
+User Info:
+- Name: {username}
+- Destination: {destination}
+- Travel Date: {start_date} to {end_date}
+- Budget: {budget}
+- Interest: {interests}
+- Travel Style: {travel_style}
+- Dietary Preferences: {dietary_preferences}
+
+Ensure the plan fits the user's budget and travel style. Highlight one unique or offbeat experience they shouldn't miss.
+Keep the tone friendly and informative.
+""")
+    ]
+)
